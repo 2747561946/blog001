@@ -1,4 +1,7 @@
 <?php
+// 设置时区
+date_default_timezone_set('PRC');
+
 // 使用 redis 保存 SESSION
 ini_set('session.save_handler', 'redis');
 // 设置 redis 服务器的地址、端
