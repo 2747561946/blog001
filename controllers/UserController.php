@@ -8,6 +8,12 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController
 {
+    public function setActiveUsers()
+    {
+        $user = new User;
+        $user->computeActiveUsers();
+    }
+
     public function uploadbig()
     {
         /* 接收提交的数据 */

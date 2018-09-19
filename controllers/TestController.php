@@ -5,6 +5,53 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class TestController
 {
+    public function test()
+    {
+        // 发表日志的分数
+        $data = [
+            '3' => 40,
+            '6' => 5,
+            '8' => 22,
+        ];
+        // 发表评论的分数
+        $data1 = [
+            '56' => 100,
+            '2' => 5,
+            '6' => 70,
+            '1' => 4,
+        ];
+        // 点赞的分数
+        $data2 = [
+            '10' => 200,
+            '9' => 87,
+            '6' => 70,
+            '1' => 4,
+        ];
+
+        // 把第二个数组中的数据合并到第一个数组中
+        foreach($data1 as $k => $v)
+        {
+            if( isset( $data[$k] ) )
+                $data[$k] += $v;
+            else
+                $data[$k] = $v;
+        }
+        // 把第三个数组中的数据合并到第一个数组中
+        foreach($data2 as $k => $v)
+        {
+            if( isset( $data[$k] ) )
+                $data[$k] += $v;
+            else
+                $data[$k] = $v;
+        }
+
+        // 把合并之后的数据根据分值倒序排列
+        arsort( $data );
+
+        array_splice($data, 0, 20);
+
+    }
+
     public function testImage()
     {
         // 打开要处理的图片

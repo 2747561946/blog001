@@ -20,6 +20,17 @@
         <?php endforeach; ?>
     </ul>
 
+    <h1>一周活跃用户</h1>
+    <ul>
+        <?php foreach($users as $v): ?>
+
+            <li>
+                <img size="50" height="50" src="<?=  $v['avatar'] ? $v['avatar'] : '/images/avatar.jpg'   ?>" title="<?=$v['email']?>">
+            </li>
+
+        <?php endforeach; ?>
+    </ul>
+
     <?php view('common.footer') ?>
 
     <?php if(config('mode')=='dev'): ?>
